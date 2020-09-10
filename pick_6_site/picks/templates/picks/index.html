@@ -1,0 +1,9 @@
+{% if latest_pick_list %}
+    <ul>
+    {% for pick in latest_pick_list %}
+        <li><a href="/picks/{{ pick.id }}/">{{ pick.pick_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No picks are available.</p>
+{% endif %}
