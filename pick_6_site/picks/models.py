@@ -7,16 +7,16 @@ from django.db.models import CharField
 
 
 class Pick(models.Model):
+    pick_text = models.CharField(max_length=40)
+    pick_type = models.CharField(max_length=40)
+    pts = models.CharField(max_length=40)
+    pub_date = models.DateTimeField('date published', default=True)
+
     def __str__(self):
         return self.pick_text
 
-    pick_text = CharField = models.CharField(max_length=40)
-    pick_type = models.CharField(max_length=40)
-    pts = models.CharField(max_length=40)
-    pick_date = models.DateTimeField('date published')
-
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=7)
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 # pick_text: CharField = models.CharField(max_length=40)
 # pick_type = models.CharField(max_length=40)
